@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Austin AI Trader</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:#090e18;color:white;
+ font-family:Arial,sans-serif;padding:20px
+}
+header{color:#43d9ff;font-size:25px;font-weight:bold}
+.sub{color:#9ba9bc;margin:10px 0 25px}
+.card{
+ background:#151f30;border:1px solid #29384c;
+ border-radius:14px;padding:18px;margin:15px 0
+}
+h2{font-size:18px;color:#43d9ff}
+select,button{
+ width:100%;padding:14px;margin-top:10px;
+ border-radius:9px;border:0;font-size:16px
+}
+select{background:#26364c;color:white}
+button{background:#087fbd;color:white;font-weight:bold}
+.stat{display:flex;justify-content:space-between;
+ padding:12px 0;border-bottom:1px solid #29384c}
+.value{color:#43d9ff;font-weight:bold}
+.signal{font-size:23px;text-align:center;
+ padding:22px;color:#ffc857}
+footer{color:#8291a5;text-align:center;font-size:12px;
+ margin-top:30px}
+</style>
+</head>
+<body>
+
+<header>🤖 AUSTIN AI TRADER</header>
+<div class="sub">Personal Deriv Trading Analysis</div>
+
+<div class="card">
+<h2>📊 Trading Dashboard</h2>
+<div class="stat">
+<span>Platform</span><span class="value">Deriv</span>
+</div>
+<div class="stat">
+<span>Account mode</span><span class="value">DEMO</span>
+</div>
+<div class="stat">
+<span>Analysis status</span><span class="value" id="status">Ready</span>
+</div>
+</div>
+
+<div class="card">
+<h2>Market Selection</h2>
+<select id="market">
+<option>Volatility 10 Index</option>
+<option>Volatility 25 Index</option>
+<option>Volatility 50 Index</option>
+<option>Volatility 75 Index</option>
+<option>Volatility 100 Index</option>
+</select>
+<button onclick="analyse()">ANALYSE MARKET</button>
+<div class="signal" id="signal">
+Waiting for market data...
+</div>
+</div>
+
+<div class="card">
+<h2>📈 Trading Analysis</h2>
+<div class="stat">
+<span>Market</span><span id="selected">Not selected</span>
+</div>
+<div class="stat">
+<span>Direction</span><span id="direction">Pending</span>
+</div>
+<div class="stat">
+<span>Confidence</span><span id="confidence">Not available</span>
+</div>
+</div>
+
+<div class="card">
+<h2>⚙️ Risk Management</h2>
+<label>Demo stake amount ($)</label>
+<select id="stake">
+<option value="1">$1</option>
+<option value="2">$2</option>
+<option value="5">$5</option>
+<option value="10">$10</option>
+</select>
+<p style="color:#9ba9bc">
+Always test with a demo account. Never risk money you cannot afford to lose.
+</p>
+</div>
+
+<footer>
+Austin AI Trader © 2026<br>
+Analysis dashboard — not a guaranteed trading signal.
+</footer>
+
+<script>
+function analyse(){
+ const market=document.getElementById('market').value;
+ document.getElementById('status').textContent='Waiting for data';
+ document.getElementById('selected').textContent=market;
+ document.getElementById('direction').textContent='Unavailable';
+ document.getElementById('confidence').textContent='Unavailable';
+ document.getElementById('signal').textContent=
+ 'Market data connection required. No trade signal generated.';
+}
+</script>
+</body>
+</html>
